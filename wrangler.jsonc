@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nexusgtm-workspace",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-17",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": { "GEMINI_MODEL": "gemini-3.8-flash" },
+  "ratelimits": [{
+    "name": "REQUEST_LIMITER",
+    "namespace_id": "1001",
+    "simple": { "limit": 10, "period": 60 }
+  }]
+}
